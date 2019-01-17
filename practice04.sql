@@ -71,19 +71,19 @@ select d.dept_name
 from employees a , salaries b , dept_emp c, departments d 
 where a.emp_no = b.emp_no and a.emp_no = c.emp_no and c.dept_no = d.dept_no
 and b.to_date = '9999-01-01' and c.to_date = '9999-01-01'
-group by dept_name having avg(b.salary)
-order by avg(b.salary)
+group by dept_name
+order by avg(b.salary) desc
 limit 0,1;
 
 -- 문제7.
 -- 평균 연봉이 가장 높은 직책?
 
-select c.title
+select c.title 
 from employees a , salaries b , titles c
 where a.emp_no = b.emp_no and a.emp_no = c.emp_no
 and b.to_date = '9999-01-01' and c.to_date = '9999-01-01'
-group by c.title having avg(b.salary)
-order by avg(c.title)
+group by c.title
+order by avg(b.salary) desc
 limit 0,1;
 
 
